@@ -4,7 +4,7 @@
 import React from "react";
 import { View, StyleSheet, Text, Image, ImageBackground } from "react-native";
 
-export default function Login(props) {
+export default function Register({ navigation }) {
   return <View style={{ backgroundColor: "white" }}></View>;
 }
 
