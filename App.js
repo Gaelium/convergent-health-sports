@@ -17,7 +17,7 @@ export default function App() {
           component={Splash}
           options={{ title: "" }}
         />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Login" component={Login} options={{ title: "" }} />
         <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
