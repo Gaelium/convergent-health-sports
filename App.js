@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Sports from "./components/Sports";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
+//<Stack.Screen name="Sports" component={Sports} />
 const styles = StyleSheet.create({
   container: {
     flex: 1,

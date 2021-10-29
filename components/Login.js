@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import { useFonts } from "@expo-google-fonts/comfortaa";
 function Login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
@@ -17,7 +18,7 @@ function Login({ navigation }) {
         placeholder="Email"
         placeholderTextColor={"black"}
         onChangeText={(email) => {
-          this.setState({ email });
+          setEmail(email);
         }}
       ></TextInput>
       <TextInput
@@ -25,12 +26,13 @@ function Login({ navigation }) {
         placeholder="Password"
         placeholderTextColor={"black"}
         onChangeText={(password) => {
-          this.setState({ password });
+          setPassword(password);
         }}
       ></TextInput>
       <TouchableOpacity
         style={styles.loginButtonContainer}
         onPress={() => {
+          //Replace this with a function connecting to firebase
           console.log("Pressed login button");
         }}
       >
