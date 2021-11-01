@@ -33,7 +33,7 @@ function Login({ navigation }) {
         style={styles.loginButtonContainer}
         onPress={() => {
           //Replace this with a function connecting to firebase
-          console.log("Pressed login button");
+          navigation.navigate("HomeScreen");
         }}
       >
         <Text style={styles.loginText}>Login</Text>
