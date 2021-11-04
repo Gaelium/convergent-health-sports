@@ -1,12 +1,21 @@
-import React from "react";
-import { View, Text } from "react-native";
-
+import React, { Component, useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  Picker,
+  ScrollView,
+  SafeAreaView,
+  FlatList,
+} from "react-native";
+import DropDownPicker from "react-native-dropdown-picker";
 export default function createEvent() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [groupSize, setGroupSize] = useState(0);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -14,56 +23,91 @@ export default function createEvent() {
     { label: "Female", value: "female" },
     { label: "Perfer Not to Say", value: "pnts" },
   ]);
-
+  const [openVisibility, setOpenVisibility] = useState(false);
+  const [valueVis, setValueVis] = useState(null);
+  const [itemsVis, setItemsVis] = useState([
+    { label: "Public", value: "public" },
+    { label: "Private", value: "private" },
+  ]);
   const setDropDown = () => {
     setOpen(!open);
   };
+  const setDropDownVis = () => {
+    setOpenVisibility(!openVisibility);
+  };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Personal Info</Text>
-      <View style={styles.name}>
-        <TextInput
-          style={styles.nameInput}
-          placeholder="First Name"
-          placeholderTextColor={"black"}
-          onChangeText={(firstName) => {
-            setFirstName(firstName);
-          }}
-        />
-        <TextInput
-          style={styles.nameInput}
-          placeholder="Last Name"
-          placeholderTextColor={"black"}
-          onChangeText={(lastName) => {
-            setLastName(lastName);
-          }}
-        />
-      </View>
+      <Text style={styles.title}>Create Event</Text>
+      <Text>Name</Text>
       <TextInput
         style={styles.textInput}
-        placeholder="Email"
+        placeholder="Event Name"
         placeholderTextColor={"black"}
-        onChangeText={(email) => {
-          setFirstName(setEmail);
+        onChangeText={(name) => {
+          setName(name);
+        }}
+      />
+      <Text>Visibility</Text>
+      <DropDownPicker
+        open={openVisibility}
+        value={valueVis}
+        items={itemsVis}
+        setOpen={setDropDownVis}
+        setValue={(value) => {
+          setValueVis(value);
+        }}
+        onPress={(open) => console.log("was the picker open?", open)}
+        setItems={setItems}
+        disableBorderRadius={true}
+        textStyle={{
+          fontSize: 16,
+          fontFamily: "Comfortaa-Regular",
+        }}
+        style={{
+          borderWidth: 0,
+        }}
+        containerStyle={{
+          width: "85%",
+          borderWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+          elevation: 24,
+        }}
+        dropDownContainerStyle={{
+          borderWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+          elevation: 24,
+        }}
+      />
+      <Text>Description</Text>
+      <TextInput
+        style={styles.descriptionInput}
+        placeholder="Description"
+        placeholderTextColor={"black"}
+        onChangeText={(desc) => {
+          setDescription(desc);
         }}
       />
       <TextInput
         style={styles.textInput}
-        placeholder="Password"
+        placeholder="Enter Group Size"
         placeholderTextColor={"black"}
-        onChangeText={(password) => {
-          setFirstName(setPassword);
+        onChangeText={(groupSize) => {
+          setGroupSize(groupSize);
         }}
       />
-      <TextInput
-        style={styles.textInput}
-        placeholder="Confirm Password"
-        placeholderTextColor={"black"}
-        onChangeText={(confirmPassword) => {
-          setFirstName(setConfirmPassword);
-        }}
-      />
-      <Text>Gender</Text>
+      <Text>Pick Sport</Text>
       <DropDownPicker
         open={open}
         value={value}
@@ -72,7 +116,7 @@ export default function createEvent() {
         setValue={(value) => {
           setValue(value);
         }}
-        onPress={(open) => console.log("was the picker open?", open)}
+        onPress={(open) => {}}
         setItems={setItems}
         disableBorderRadius={true}
         textStyle={{
@@ -118,3 +162,121 @@ export default function createEvent() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#EFEFEF",
+  },
+  title: {
+    fontSize: 40,
+    color: "black",
+    borderRadius: 10,
+    alignSelf: "flex-start",
+    marginLeft: 30,
+    fontFamily: "Comfortaa-Regular",
+    marginTop: 20,
+    marginBottom: 25,
+  },
+  nameInput: {
+    fontSize: 16,
+    backgroundColor: "white",
+    borderColor: "#000",
+    color: "black",
+    borderRadius: 10,
+    textAlign: "auto",
+    width: "40%",
+    height: 50,
+    margin: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Comfortaa-Regular",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 8.0,
+
+    elevation: 24,
+  },
+  textInput: {
+    fontSize: 16,
+    backgroundColor: "white",
+    borderColor: "#000",
+    color: "black",
+    borderRadius: 10,
+    textAlign: "auto",
+    width: "85%",
+    height: 50,
+    margin: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Comfortaa-Regular",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 8.0,
+
+    elevation: 24,
+  },
+  descriptionInput: {
+    fontSize: 16,
+    backgroundColor: "white",
+    borderColor: "#000",
+    color: "black",
+    borderRadius: 10,
+    textAlign: "auto",
+    width: "85%",
+    height: 200,
+    margin: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Comfortaa-Regular",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 8.0,
+
+    elevation: 24,
+  },
+  name: {
+    flexDirection: "row",
+  },
+  loginButtonContainer: {
+    fontSize: 16,
+    backgroundColor: "#37D1A6",
+    borderRadius: 10,
+    width: 350,
+    height: 55,
+    margin: 20,
+    marginTop: "35%",
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 8.0,
+
+    elevation: 24,
+  },
+  loginText: {
+    color: "white",
+    fontSize: 16,
+    fontFamily: "Comfortaa-Regular",
+  },
+});

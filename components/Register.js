@@ -52,7 +52,7 @@ function Register({ navigation }) {
         placeholder="Email"
         placeholderTextColor={"black"}
         onChangeText={(email) => {
-          setFirstName(setEmail);
+          setEmail(email);
         }}
       />
       <TextInput
@@ -60,7 +60,7 @@ function Register({ navigation }) {
         placeholder="Password"
         placeholderTextColor={"black"}
         onChangeText={(password) => {
-          setFirstName(setPassword);
+          setPassword(password);
         }}
       />
       <TextInput
@@ -68,7 +68,7 @@ function Register({ navigation }) {
         placeholder="Confirm Password"
         placeholderTextColor={"black"}
         onChangeText={(confirmPassword) => {
-          setFirstName(setConfirmPassword);
+          setConfirmPassword(confirmPassword);
         }}
       />
       <Text style={styles.inputTitle}>Gender</Text>
