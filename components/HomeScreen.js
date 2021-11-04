@@ -22,7 +22,7 @@ function HomeScreen() {
               setLive(true);
             }}
           >
-            <Text>Live</Text>
+            <Text style={styles.buttonText}>Live</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.scheduleButton}
@@ -30,11 +30,11 @@ function HomeScreen() {
               setLive(false);
             }}
           >
-            <Text>Scheduled</Text>
+            <Text style={styles.buttonText}>Scheduled</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.list}>
-          <Text>Live Events</Text>
+          <Text style={styles.titleStyle}>Live Events</Text>
           <FlatList
             style={styles.flatlist}
             data={[
@@ -60,9 +60,9 @@ function HomeScreen() {
                     style={{ width: 75, height: 75, marginRight: 10 }}
                   />
                   <View style={{ marginLeft: "15%" }}>
-                    <Text>{item.key}</Text>
-                    <Text>{item.when}</Text>
-                    <Text>{item.where}</Text>
+                    <Text style={styles.textStyle}>{item.key}</Text>
+                    <Text style={styles.textStyle}>{item.when}</Text>
+                    <Text style={styles.textStyle}>{item.where}</Text>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -138,6 +138,19 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.12,
     shadowRadius: 8.0,
+  },
+  textStyle: {
+    fontSize: 16,
+    fontFamily: "Comfortaa-Regular",
+  },
+  titleStyle: {
+    fontSize: 24,
+    fontFamily: "Comfortaa-Regular",
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Comfortaa-Regular",
+    color: "white",
   },
 });
 export default HomeScreen;
