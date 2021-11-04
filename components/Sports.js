@@ -3,7 +3,7 @@ import {
   View,
   StyleSheet,
   Text,
-  Image,
+  ScrollView,
   TouchableOpacity,
   TextInput,
 } from "react-native";
@@ -49,6 +49,7 @@ function Sports({ navigation }) {
     setThirdSportDifficultyOpen(!thirdSportDifficultyOpen);
   };
   return (
+    <ScrollView>
     <View style={styles.container}>
       <Text style={styles.title}>Sports</Text>
       <Text style={styles.inputTitle}>
@@ -84,8 +85,19 @@ function Sports({ navigation }) {
           borderWidth: 0,
         }}
         containerStyle={{
+          fontSize: 16,
+          backgroundColor: "white",
+          borderColor: "#000",
+          color: "black",
+          borderRadius: 10,
+          marginBottom: 50,
+          textAlign: "auto",
           width: "85%",
-          borderWidth: 0,
+          height: 50,
+          margin: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "Comfortaa-Regular",
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
@@ -93,10 +105,23 @@ function Sports({ navigation }) {
           },
           shadowOpacity: 0.12,
           shadowRadius: 8.0,
+      
           elevation: 24,
         }}
         dropDownContainerStyle={{
-          borderWidth: 0,
+          fontSize: 16,
+          backgroundColor: "white",
+          borderColor: "#000",
+          color: "black",
+          borderRadius: 10,
+          marginBottom: 50,
+          textAlign: "auto",
+          width: "85%",
+          height: 50,
+          margin: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "Comfortaa-Regular",
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
@@ -104,10 +129,14 @@ function Sports({ navigation }) {
           },
           shadowOpacity: 0.12,
           shadowRadius: 8.0,
+      
           elevation: 24,
         }}
       />
 
+      <Text style={styles.inputTitle}>
+        Second Favorite Sport<Text style={{ color: "red" }}>*</Text>
+      </Text>
       <TextInput
         style={styles.textInput}
         placeholder="Enter sport..."
@@ -138,8 +167,19 @@ function Sports({ navigation }) {
           borderWidth: 0,
         }}
         containerStyle={{
+          fontSize: 16,
+          backgroundColor: "white",
+          borderColor: "#000",
+          color: "black",
+          borderRadius: 10,
+          marginBottom: 50,
+          textAlign: "auto",
           width: "85%",
-          borderWidth: 0,
+          height: 50,
+          margin: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "Comfortaa-Regular",
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
@@ -147,10 +187,23 @@ function Sports({ navigation }) {
           },
           shadowOpacity: 0.12,
           shadowRadius: 8.0,
+      
           elevation: 24,
         }}
         dropDownContainerStyle={{
-          borderWidth: 0,
+          fontSize: 16,
+          backgroundColor: "white",
+          borderColor: "#000",
+          color: "black",
+          borderRadius: 10,
+          marginBottom: 50,
+          textAlign: "auto",
+          width: "85%",
+          height: 50,
+          margin: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "Comfortaa-Regular",
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
@@ -158,6 +211,7 @@ function Sports({ navigation }) {
           },
           shadowOpacity: 0.12,
           shadowRadius: 8.0,
+      
           elevation: 24,
         }}
       />
@@ -176,16 +230,84 @@ function Sports({ navigation }) {
       <Text style={styles.inputTitle}>
         Skill Level<Text style={{ color: "red" }}>*</Text>
       </Text>
+      
+      <DropDownPicker
+        thirdSportDifficultyOpen={thirdSportDifficultyOpen}
+        thirdSportDifficultyValue={thirdSportDifficultyValue}
+        items={thirdSportDifficulty}
+        setThirdSportDifficultyOpen={setThirdSportDifficultyDropDown}
+        setThirdSportDifficultyValue={(thirdSportDifficultyValue) => {
+          setThirdSportDifficultyValue(thirdSportDifficultyValue);
+        }}
+        setThirdSportDifficulty={setThirdSportDifficulty}
+        disableBorderRadius={true}
+        textStyle={{
+          fontSize: 16,
+          fontFamily: "Comfortaa-Regular",
+        }}
+        style={{
+          borderWidth: 0,
+        }}
+        containerStyle={{
+          fontSize: 16,
+          backgroundColor: "white",
+          borderColor: "#000",
+          color: "black",
+          borderRadius: 10,
+          marginBottom: 30,
+          textAlign: "auto",
+          width: "85%",
+          height: 50,
+          margin: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "Comfortaa-Regular",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+      
+          elevation: 24,
+        }}
+        dropDownContainerStyle={{
+          fontSize: 16,
+          backgroundColor: "white",
+          borderColor: "#000",
+          color: "black",
+          borderRadius: 10,
+          marginBottom: 30,
+          textAlign: "auto",
+          width: "85%",
+          height: 50,
+          margin: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "Comfortaa-Regular",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+      
+          elevation: 24,
+        }}
+      />
+
       <TouchableOpacity
         style={styles.loginButtonContainer}
         onPress={() => {
-          //Replace this with a function connecting to firebase
-          console.log("Pressed login button");
+          navigation.navigate("Username");
         }}
       >
         <Text style={styles.loginText}>Next</Text>
       </TouchableOpacity>
     </View>
+    </ScrollView>
   );
 }
 

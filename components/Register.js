@@ -71,7 +71,7 @@ function Register({ navigation }) {
           setFirstName(setConfirmPassword);
         }}
       />
-      <Text>Gender</Text>
+      <Text style={styles.inputTitle}>Gender</Text>
       <DropDownPicker
         open={open}
         value={value}
@@ -80,7 +80,6 @@ function Register({ navigation }) {
         setValue={(value) => {
           setValue(value);
         }}
-        onPress={(open) => console.log("was the picker open?", open)}
         setItems={setItems}
         disableBorderRadius={true}
         textStyle={{
@@ -141,10 +140,21 @@ const styles = StyleSheet.create({
     color: "black",
     borderRadius: 10,
     alignSelf: "flex-start",
+    alignItems: "center",
     marginLeft: 30,
     fontFamily: "Comfortaa-Regular",
     marginTop: 20,
     marginBottom: 25,
+  },
+  inputTitle: {
+    fontSize: 15,
+    color: "black",
+    borderRadius: 10,
+    alignSelf: "flex-start",
+    marginLeft: 30,
+    fontFamily: "Comfortaa-Regular",
+    marginTop: 20,
+    marginBottom: 2,
   },
   nameInput: {
     fontSize: 16,

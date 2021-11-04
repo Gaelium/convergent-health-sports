@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Sports from "./components/Sports";
 import HomeScreen from "./components/HomeScreen";
+import Username from "./components/Username";
 import viewEvent from "./components/viewEvent";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,6 +27,7 @@ export default function App() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="HomeScreen" component={HomeStackScreen} />
         <Stack.Screen name="Sports" component={Sports} />
+        <Stack.Screen name="Username" component={Username} />
       </Stack.Navigator>
     </NavigationContainer>
   );
