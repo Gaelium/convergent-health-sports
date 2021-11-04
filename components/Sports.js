@@ -7,162 +7,164 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import CheckBox from "react-native-elements";
+import DropDownPicker from "react-native-dropdown-picker";
 function Sports({ navigation }) {
-  const [primarySport, setPrimarySport] = useState("");
-  const [secondarySport, setSecondarySport] = useState("");
-  const [tertiarySport, setTertiarySport] = useState("");
-  const [primaryBeginnerChecked, setPrimaryBeginnerChecked] = useState(false);
-  const [secondaryBeginnerChecked, setSecondaryBeginnerChecked] =
-    useState(false);
-  const [tertiaryBeginnerChecked, setTertiaryBeginnerChecked] = useState(false);
-  const [primaryIntermediateChecked, setPrimaryIntermediateChecked] =
-    useState(false);
-  const [secondaryIntermediateChecked, setSecondaryIntermediateChecked] =
-    useState(false);
-  const [tertiaryIntermediateChecked, setTertiaryIntermediateChecked] =
-    useState(false);
-  const [primaryAdvancedChecked, setPrimaryAdvancedChecked] = useState(false);
-  const [secondaryAdvancedChecked, setSecondaryAdvancedChecked] =
-    useState(false);
-  const [tertiaryAdvancedChecked, setTertiaryAdvancedChecked] = useState(false);
-
-  const [primaryBeginnerDisabled, setPrimaryBeginnerDisabled] = useState(false);
-  const [secondaryBeginnerDisabled, setSecondaryBeginnerDisabled] =
-    useState(false);
-  const [tertiaryBeginnerDisabled, setTertiaryBeginnerDisabled] =
-    useState(false);
-  const [primaryIntermediateDisabled, setPrimaryIntermediateDisabled] =
-    useState(false);
-  const [secondaryIntermediateDisabled, setSecondaryIntermediateDisabled] =
-    useState(false);
-  const [tertiaryIntermediateDisabled, setTertiaryIntermediateDisabled] =
-    useState(false);
-  const [primaryAdvancedDisabled, setPrimaryAdvancedDisabled] = useState(false);
-  const [secondaryAdvancedDisabled, setSecondaryAdvancedDisabled] =
-    useState(false);
-  const [tertiaryAdvancedDisabled, setTertiaryAdvancedDisabled] =
-    useState(false);
+  const [firstSport, setFirstSport] = useState("");
+  const [secondSport, setSecondSport] = useState("");
+  const [thirdSport, setThirdSport] = useState("");
+  const [firstSportDifficulty, setFirstSportDifficulty] = useState([
+    { label: "Beginner", value: "beginner" },
+    { label: "Intermediate", value: "intermediate" },
+    { label: "Advanced", value: "advanced" },
+  ]);
+  const [firstSportDifficultyOpen, setFirstSportDifficultyOpen] = useState(false);
+  const [firstSportDifficultyValue, setFirstSportDifficultyValue] = useState(null);
+  const setFirstSportDifficultyDropDown = () => {
+    setFirstSportDifficultyOpen(!firstSportDifficultyOpen);
+  };
+  const [secondSportDifficulty, setSecondSportDifficulty] = useState([
+    { label: "Beginner", value: "beginner" },
+    { label: "Intermediate", value: "intermediate" },
+    { label: "Advanced", value: "advanced" },
+  ]);
+  const [secondSportDifficultyOpen, setSecondSportDifficultyOpen] = useState(false);
+  const [secondSportDifficultyValue, setSecondSportDifficultyValue] = useState(null);
+  const setSecondSportDifficultyDropDown = () => {
+    setSecondSportDifficultyOpen(!secondSportDifficultyOpen);
+  };
+  const [thirdSportDifficulty, setThirdSportDifficulty] = useState([
+    { label: "Beginner", value: "beginner" },
+    { label: "Intermediate", value: "intermediate" },
+    { label: "Advanced", value: "advanced" },
+  ]);
+  const [thirdSportDifficultyOpen, setThirdSportDifficultyOpen] = useState(false);
+  const [thirdSportDifficultyValue, setThirdSportDifficultyValue] = useState(null);
+  const setThirdSportDifficultyDropDown = () => {
+    setThirdSportDifficultyOpen(!thirdSportDifficultyOpen);
+  };
   return (
-    /*<CheckBox
-  center
-  title='Click Here to Remove This Item'
-  iconRight
-  iconType='material'
-  checkedIcon='clear'
-  uncheckedIcon='add'
-  checkedColor='red'
-  checked={this.state.checked}
-  onPress={() => this.setState({checked: !this.state.checked})}
-/>*/
     <View style={styles.container}>
       <Text style={styles.title}>Sports</Text>
       <Text style={styles.inputTitle}>
-        Primary Sport<Text style={{ color: "red" }}>*</Text>
+        Favorite Sport<Text style={{ color: "red" }}>*</Text>
       </Text>
       <TextInput
         style={styles.textInput}
         placeholder="Enter sport..."
         placeholderTextColor={"black"}
-        onChangeText={(primarySport) => {
-          setPrimarySport(primarySport);
+        onChangeText={(firstSport) => {
+          setFirstSport(firstSport);
         }}
       />
+
       <Text style={styles.inputTitle}>
         Skill Level<Text style={{ color: "red" }}>*</Text>
       </Text>
-      <View style={styles.checkboxContainer}>
-        <CheckBox
-          checked={primaryBeginnerDisabled}
-          iconType="material"
-          checkedIcon="clear"
-          uncheckedIcon="add"
-          checkedColor="red"
-          onPress={(primaryBeginnerChecked, setPrimaryBeginnerChecked) => {
-            if (!primaryBeginnerChecked) {
-              setPrimaryIntermediateDisabled(true);
-              setPrimaryAdvancedDisabled(true);
-            } else {
-              setPrimaryIntermediateDisabled(false);
-              setPrimaryAdvancedDisabled(false);
-            }
-            setPrimaryBeginnerChecked(!primaryBeginnerChecked);
-          }}
-          style={styles.checkbox}
-        />
-        <Text style={styles.inputTitle}>Beginner</Text>
-      </View>
-      <View style={styles.checkboxContainer}>
-        <CheckBox
-          checked={primaryIntermediateDisabled}
-          iconType="material"
-          checkedIcon="clear"
-          uncheckedIcon="add"
-          checkedColor="red"
-          onPress={(
-            primaryIntermediateChecked,
-            setPrimaryIntermediateChecked
-          ) => {
-            if (!primaryIntermediateChecked) {
-              setPrimaryBeginnerDisabled(true);
-              setPrimaryAdvancedDisabled(true);
-            } else {
-              setPrimaryBeginnerDisabled(false);
-              setPrimaryAdvancedDisabled(false);
-            }
-            setPrimaryIntermediateChecked(!primaryIntermediateChecked);
-          }}
-          style={styles.checkbox}
-        />
-        <Text style={styles.inputTitle}>Intermediate</Text>
-      </View>
-      <View style={styles.checkboxContainer}>
-        <CheckBox
-          checked={primaryAdvancedDisabled}
-          iconType="material"
-          checkedIcon="clear"
-          uncheckedIcon="add"
-          checkedColor="red"
-          onValueChange={(
-            primaryAdvancedChecked,
-            setPrimaryAdvancedChecked
-          ) => {
-            if (!primaryAdvancedChecked) {
-              setPrimaryBeginnerDisabled(true);
-              setPrimaryIntermediateDisabled(true);
-            } else {
-              setPrimaryBeginnerDisabled(false);
-              setPrimaryIntermediateDisabled(false);
-            }
-            setPrimaryAvancedChecked(!primaryAdvancedChecked);
-          }}
-          style={styles.checkbox}
-        />
-        <Text style={styles.inputTitle}>Advanced</Text>
-      </View>
-      <Text style={styles.inputTitle}>
-        Secondary Sport<Text style={{ color: "red" }}>*</Text>
-      </Text>
+      <DropDownPicker
+        firstSportDifficultyOpen={firstSportDifficultyOpen}
+        firstSportDifficultyValue={firstSportDifficultyValue}
+        items={firstSportDifficulty}
+        setFirstSportDifficultyOpen={setFirstSportDifficultyDropDown}
+        setFirstSportDifficultyValue={(firstSportDifficultyValue) => {
+          setFirstSportDifficultyValue(firstSportDifficultyValue);
+        }}
+        setFirstSportDifficulty={setFirstSportDifficulty}
+        disableBorderRadius={true}
+        textStyle={{
+          fontSize: 16,
+          fontFamily: "Comfortaa-Regular",
+        }}
+        style={{
+          borderWidth: 0,
+        }}
+        containerStyle={{
+          width: "85%",
+          borderWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+          elevation: 24,
+        }}
+        dropDownContainerStyle={{
+          borderWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+          elevation: 24,
+        }}
+      />
+
       <TextInput
         style={styles.textInput}
         placeholder="Enter sport..."
         placeholderTextColor={"black"}
-        onChangeText={(secondarySport) => {
-          setSecondarySport(secondarySport);
+        onChangeText={(secondSport) => {
+          setSecondSport(secondSport);
         }}
       />
+
       <Text style={styles.inputTitle}>
         Skill Level<Text style={{ color: "red" }}>*</Text>
       </Text>
+      <DropDownPicker
+        secondSportDifficultyOpen={secondSportDifficultyOpen}
+        secondSportDifficultyValue={secondSportDifficultyValue}
+        items={secondSportDifficulty}
+        setSecondSportDifficultyOpen={setSecondSportDifficultyDropDown}
+        setSecondSportDifficultyValue={(secondSportDifficultyValue) => {
+          setSecondSportDifficultyValue(secondSportDifficultyValue);
+        }}
+        setSecondSportDifficulty={setSecondSportDifficulty}
+        disableBorderRadius={true}
+        textStyle={{
+          fontSize: 16,
+          fontFamily: "Comfortaa-Regular",
+        }}
+        style={{
+          borderWidth: 0,
+        }}
+        containerStyle={{
+          width: "85%",
+          borderWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+          elevation: 24,
+        }}
+        dropDownContainerStyle={{
+          borderWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.12,
+          shadowRadius: 8.0,
+          elevation: 24,
+        }}
+      />
+
       <Text style={styles.inputTitle}>
-        Tertiary Sport<Text style={{ color: "red" }}>*</Text>
+        Third Favorite Sport<Text style={{ color: "red" }}>*</Text>
       </Text>
       <TextInput
         style={styles.textInput}
         placeholder="Enter sport..."
         placeholderTextColor={"black"}
-        onChangeText={(tertiarySport) => {
-          setTertiarySport(tertiarySport);
+        onChangeText={(thirdSport) => {
+          setThirdSport(thirdSport);
         }}
       />
       <Text style={styles.inputTitle}>
