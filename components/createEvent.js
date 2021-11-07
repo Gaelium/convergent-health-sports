@@ -12,7 +12,7 @@ import {
   FlatList,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-export default function createEvent() {
+export default function createEvent({ navigation }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [groupSize, setGroupSize] = useState(0);
@@ -36,130 +36,131 @@ export default function createEvent() {
     setOpenVisibility(!openVisibility);
   };
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Create Event</Text>
-      <Text>Name</Text>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Event Name"
-        placeholderTextColor={"black"}
-        onChangeText={(name) => {
-          setName(name);
-        }}
-      />
-      <Text>Visibility</Text>
-      <DropDownPicker
-        open={openVisibility}
-        value={valueVis}
-        items={itemsVis}
-        setOpen={setDropDownVis}
-        setValue={(value) => {
-          setValueVis(value);
-        }}
-        onPress={(open) => console.log("was the picker open?", open)}
-        setItems={setItems}
-        disableBorderRadius={true}
-        textStyle={{
-          fontSize: 16,
-          fontFamily: "Comfortaa-Regular",
-        }}
-        style={{
-          borderWidth: 0,
-        }}
-        containerStyle={{
-          width: "85%",
-          borderWidth: 0,
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-          elevation: 24,
-        }}
-        dropDownContainerStyle={{
-          borderWidth: 0,
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-          elevation: 24,
-        }}
-      />
-      <Text>Description</Text>
-      <TextInput
-        style={styles.descriptionInput}
-        placeholder="Description"
-        placeholderTextColor={"black"}
-        onChangeText={(desc) => {
-          setDescription(desc);
-        }}
-      />
-      <TextInput
-        style={styles.textInput}
-        placeholder="Enter Group Size"
-        placeholderTextColor={"black"}
-        onChangeText={(groupSize) => {
-          setGroupSize(groupSize);
-        }}
-      />
-      <Text>Pick Sport</Text>
-      <DropDownPicker
-        open={open}
-        value={value}
-        items={items}
-        setOpen={setDropDown}
-        setValue={(value) => {
-          setValue(value);
-        }}
-        onPress={(open) => {}}
-        setItems={setItems}
-        disableBorderRadius={true}
-        textStyle={{
-          fontSize: 16,
-          fontFamily: "Comfortaa-Regular",
-        }}
-        style={{
-          borderWidth: 0,
-        }}
-        containerStyle={{
-          width: "85%",
-          borderWidth: 0,
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-          elevation: 24,
-        }}
-        dropDownContainerStyle={{
-          borderWidth: 0,
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-          elevation: 24,
-        }}
-      />
-      <TouchableOpacity
-        style={styles.loginButtonContainer}
-        onPress={() => {
-          //Replace this with a function connecting to firebase
-          navigation.navigate("Sports");
-        }}
-      >
-        <Text style={styles.loginText}>Next</Text>
-      </TouchableOpacity>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Create Event</Text>
+        <Text>Name</Text>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Event Name"
+          placeholderTextColor={"black"}
+          onChangeText={(name) => {
+            setName(name);
+          }}
+        />
+        <Text>Visibility</Text>
+        <DropDownPicker
+          open={openVisibility}
+          value={valueVis}
+          items={itemsVis}
+          setOpen={setDropDownVis}
+          setValue={(value) => {
+            setValueVis(value);
+          }}
+          setItems={setItems}
+          disableBorderRadius={true}
+          textStyle={{
+            fontSize: 16,
+            fontFamily: "Comfortaa-Regular",
+          }}
+          style={{
+            borderWidth: 0,
+          }}
+          containerStyle={{
+            width: "85%",
+            borderWidth: 0,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+            elevation: 24,
+          }}
+          dropDownContainerStyle={{
+            borderWidth: 0,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+            elevation: 24,
+          }}
+        />
+        <Text>Description</Text>
+        <TextInput
+          style={styles.descriptionInput}
+          placeholder="Description"
+          placeholderTextColor={"black"}
+          onChangeText={(desc) => {
+            setDescription(desc);
+          }}
+        />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter Group Size"
+          placeholderTextColor={"black"}
+          onChangeText={(groupSize) => {
+            setGroupSize(groupSize);
+          }}
+        />
+        <Text>Pick Sport</Text>
+        <DropDownPicker
+          open={open}
+          value={value}
+          items={items}
+          setOpen={setDropDown}
+          setValue={(value) => {
+            setValue(value);
+          }}
+          onPress={(open) => {}}
+          setItems={setItems}
+          disableBorderRadius={true}
+          textStyle={{
+            fontSize: 16,
+            fontFamily: "Comfortaa-Regular",
+          }}
+          style={{
+            borderWidth: 0,
+          }}
+          containerStyle={{
+            width: "85%",
+            borderWidth: 0,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+            elevation: 24,
+          }}
+          dropDownContainerStyle={{
+            borderWidth: 0,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+            elevation: 24,
+          }}
+        />
+        <TouchableOpacity
+          style={styles.loginButtonContainer}
+          onPress={() => {
+            //Replace this with a function connecting to firebase
+            navigation.navigate("viewEvent");
+          }}
+        >
+          <Text style={styles.loginText}>Next</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
@@ -192,8 +193,6 @@ const styles = StyleSheet.create({
     width: "40%",
     height: 50,
     margin: 10,
-    alignItems: "center",
-    justifyContent: "center",
     fontFamily: "Comfortaa-Regular",
     shadowColor: "#000",
     shadowOffset: {

@@ -5,8 +5,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  Dropdown,
   TextInput,
-  Picker,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 function Register({ navigation }) {
@@ -17,10 +17,17 @@ function Register({ navigation }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
+  // let genderData = [{
+  //   value: 'Male'
+  // }, {
+  //   value: 'Female'
+  // }, {
+  //   value: 'Prefer Not To Say'
+  // }];
   const [items, setItems] = useState([
     { label: "Male", value: "male" },
     { label: "Female", value: "female" },
-    { label: "Perfer Not to Say", value: "pnts" },
+    { label: "Prefer Not to Say", value: "pnts" },
   ]);
 
   const setDropDown = () => {
@@ -72,6 +79,10 @@ function Register({ navigation }) {
         }}
       />
       <Text style={styles.inputTitle}>Gender</Text>
+      {/* <Dropdown>
+        label='Please Select One'
+        data={genderData}
+      </Dropdown> */}
       <DropDownPicker
         open={open}
         value={value}

@@ -10,7 +10,7 @@ import {
 
 //create a flatlist of touchable opacity that have 3 text components
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const [live, setLive] = useState(true);
   if (live) {
     return (
