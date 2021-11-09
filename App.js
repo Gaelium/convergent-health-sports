@@ -13,6 +13,7 @@ import HomeScreen from "./components/HomeScreen";
 import Username from "./components/Username";
 import viewEvent from "./components/viewEvent";
 import createEvent from "./components/createEvent";
+import yourProfile from "./components/yourProfile";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
@@ -41,6 +42,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator
       screenOptions={({ route }) => ({
+        headerShown: false,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -75,7 +77,7 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Search" component={viewEvent} />
       <HomeStack.Screen name="Create Event" component={createEvent} />
       <HomeStack.Screen name="Message" component={viewEvent} />
-      <HomeStack.Screen name="Profile" component={viewEvent} />
+      <HomeStack.Screen name="Profile" component={yourProfile} />
     </HomeStack.Navigator>
   );
 }

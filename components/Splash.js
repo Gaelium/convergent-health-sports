@@ -5,6 +5,7 @@ import AppLoading from "expo-app-loading";
 function Splash({ navigation }) {
   let [fontsLoaded] = useFonts({
     "Comfortaa-Regular": require("../assets/fonts/Comfortaa-Regular.ttf"),
+    "Comfortaa-Bold": require("../assets/fonts/Comfortaa-Bold.ttf"),
   });
   if (!fontsLoaded) {
     return <AppLoading></AppLoading>;

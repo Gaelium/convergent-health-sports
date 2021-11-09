@@ -38,13 +38,13 @@ function HomeScreen({ navigation }) {
           <FlatList
             style={styles.flatlist}
             data={[
-              { key: "Basketball", when: "Tuesday", where: "Greg Gym" },
-              { key: "Soccer", when: "Wednesday", where: "Clark Fields" },
-              { key: "Tennis", when: "Wednesday", where: "Clark Fields" },
-              { key: "Spikeball", when: "Thursday", where: "Greg Gym" },
-              { key: "Volleyball", when: "Friday", where: "Greg Gym" },
-              { key: "Flag Football", when: "Saturday", where: "Greg Gym" },
-              { key: "Racketball", when: "Sunday", where: "Greg Gym" },
+              { key: "Basketball", when: "Tuesday", where: "Greg Gym", pic: "../assets/basketball.png" },
+              { key: "Soccer", when: "Wednesday", where: "Clark Fields", pic: "../assets/basketball.png" },
+              { key: "Tennis", when: "Wednesday", where: "Clark Fields", pic: "../assets/basketball.png" },
+              { key: "Spikeball", when: "Thursday", where: "Greg Gym", pic: "../assets/basketball.png" },
+              { key: "Volleyball", when: "Friday", where: "Greg Gym", pic: "../assets/basketball.png" },
+              { key: "Flag Football", when: "Saturday", where: "Greg Gym", pic: "../assets/basketball.png" },
+              { key: "Raquetball", when: "Sunday", where: "Greg Gym", pic: "../assets/basketball.png" },
             ]}
             renderItem={({ item }) => (
               <TouchableOpacity style={styles.listItem}>
