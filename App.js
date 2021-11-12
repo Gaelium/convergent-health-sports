@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "react-native-vector-icons/Ionicons";
 import Splash from "./components/Splash";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -13,7 +13,10 @@ import HomeScreen from "./components/HomeScreen";
 import Username from "./components/Username";
 import viewEvent from "./components/viewEvent";
 import createEvent from "./components/createEvent";
+
 import yourProfile from "./components/yourProfile";
+import Search from "./components/Search";
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
@@ -46,35 +49,29 @@ function HomeStackScreen() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === "Home") {
+            iconName = focused ? "ios-home" : "ios-home-outline";
+          } else if (route.name === "Search") {
+            iconName = focused ? "ios-search" : "ios-search-outline";
+          } else if (route.name === "Message") {
+            iconName = focused ? "ios-chatbubble" : "ios-chatbubble-outline";
+          } else if (route.name === "Create Event") {
+            iconName = "ios-add";
+          } else if (route.name === "Profile") {
             iconName = focused
-              ? 'ios-home'
-              : 'ios-home-outline';
-          } else if (route.name === 'Search') {
-            iconName = focused
-            ? 'ios-search'
-            : 'ios-search-outline';
-          } else if (route.name === 'Message') {
-            iconName = focused
-            ? 'ios-chatbubble'
-            : 'ios-chatbubble-outline';
-          } else if (route.name === 'Create Event') {
-            iconName = 'ios-add';
-          } else if (route.name === 'Profile') {
-            iconName = focused
-            ? 'ios-person-circle'
-            : 'ios-person-circle-outline';
+              ? "ios-person-circle"
+              : "ios-person-circle-outline";
           }
 
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: "tomato",
+        tabBarInactiveTintColor: "gray",
       })}
     >
       <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Search" component={viewEvent} />
+      <HomeStack.Screen name="Search" component={Search} />
       <HomeStack.Screen name="Create Event" component={createEvent} />
       <HomeStack.Screen name="Message" component={viewEvent} />
       <HomeStack.Screen name="Profile" component={yourProfile} />
@@ -89,7 +86,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  icon: {
-
-  },
+  icon: {},
 });
