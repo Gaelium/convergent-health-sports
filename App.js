@@ -16,7 +16,27 @@ import createEvent from "./components/createEvent";
 
 import yourProfile from "./components/yourProfile";
 import Search from "./components/Search";
+import { initializeApp } from "firebase/app";
 
+// Optionally import the services that you want to use
+//import {...} from "firebase/auth";
+//import {...} from "firebase/database";
+//import {...} from "firebase/firestore";
+//import {...} from "firebase/functions";
+//import {...} from "firebase/storage";
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCeQj8YIOe-Ebg0ZNZTiKYNQRPmQPEGlE4",
+  authDomain: "convergent-health.firebaseapp.com",
+  databaseURL: "https://convergent-health-default-rtdb.firebaseio.com",
+  projectId: "convergent-health",
+  storageBucket: "convergent-health.appspot.com",
+  messagingSenderId: "791844457283",
+  appId: "1:791844457283:web:454fe40c9cacfa0977bdf6",
+};
+
+const app = initializeApp(firebaseConfig);
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
