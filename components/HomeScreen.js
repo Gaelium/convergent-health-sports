@@ -48,75 +48,6 @@ function HomeScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View style={styles.list}>
-          <Text style={styles.titleStyle}>Scheduled Events</Text>
-          <FlatList
-            style={styles.flatlist}
-            data={data}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.listItem}
-                onPress={() => {
-                  console.log(item.sport);
-                  navigation.navigate("viewEvent", {
-                    sport: item.sport,
-                    when: item.when,
-                    where: item.where,
-                    location: item.location,
-                    description: item.description,
-                    group: item.group,
-                    groupSize: item.groupSize,
-                    users: item.users,
-                  });
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <Image
-                    source={require("../assets/soccer.png")}
-                    style={{ width: 75, height: 75, marginRight: 10 }}
-                  />
-                  <View style={{ marginLeft: "15%" }}>
-                    <Text style={styles.textStyle}>{item.sport}</Text>
-                    <Text style={styles.textStyle}>{item.when}</Text>
-                    <Text style={styles.textStyle}>{item.where}</Text>
-                  </View>
-                </View>
-                {/* onPress={() => {
-                  navigation.navigate("viewEvent");
-                }} */}
-              </TouchableOpacity>
-            )}
-          />
-        </View>
-      </View>
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.liveButton}
-            onPress={() => {
-              setLive(true);
-            }}
-          >
-            <Text style={styles.buttonText}>Live</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.scheduleButton}
-            onPress={() => {
-              setLive(false);
-            }}
-          >
-            <Text style={styles.buttonText}>Scheduled</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
           <Text style={styles.titleStyle}>Live Events</Text>
           <FlatList
             style={styles.flatlist}
@@ -147,6 +78,72 @@ function HomeScreen({ navigation }) {
                 >
                   <Image
                     source={require("../assets/basketball.png")}
+                    style={{ width: 75, height: 75, marginRight: 10 }}
+                  />
+                  <View style={{ marginLeft: "15%" }}>
+                    <Text style={styles.textStyle}>{item.sport}</Text>
+                    <Text style={styles.textStyle}>{item.when}</Text>
+                    <Text style={styles.textStyle}>{item.where}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.liveButton}
+            onPress={() => {
+              setLive(true);
+            }}
+          >
+            <Text style={styles.buttonText}>Live</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.scheduleButton}
+            onPress={() => {
+              setLive(false);
+            }}
+          >
+            <Text style={styles.buttonText}>Scheduled</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.list}>
+          <Text style={styles.titleStyle}>Scheduled Events</Text>
+          <FlatList
+            style={styles.flatlist}
+            data={data}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.listItem}
+                onPress={() => {
+                  console.log(item.sport);
+                  navigation.navigate("viewEvent", {
+                    sport: item.sport,
+                    when: item.when,
+                    where: item.where,
+                    location: item.location,
+                    description: item.description,
+                    group: item.group,
+                    groupSize: item.groupSize,
+                    users: item.users,
+                  });
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image
+                    source={require("../assets/soccer.png")}
                     style={{ width: 75, height: 75, marginRight: 10 }}
                   />
                   <View style={{ marginLeft: "15%" }}>
