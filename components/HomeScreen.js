@@ -86,6 +86,9 @@ function HomeScreen({ navigation }) {
                     <Text style={styles.textStyle}>{item.where}</Text>
                   </View>
                 </View>
+                {/* onPress={() => {
+                  navigation.navigate("viewEvent");
+                }} */}
               </TouchableOpacity>
             )}
           />

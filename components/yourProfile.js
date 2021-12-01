@@ -28,13 +28,13 @@ export default function yourProfile() {
             }}
           >
             <Image
-              source={require("../assets/basketball.png")}
+              source={require("../assets/soccer.png")}
               style={{ width: 75, height: 75, marginRight: 10 }}
             />
             <View style={{ marginLeft: "15%" }}>
-              <Text style={styles.textStyle}>{"Basketball"}</Text>
-              <Text style={styles.textStyle}>{"Tuesday"}</Text>
-              <Text style={styles.textStyle}>{"Gregory Gym"}</Text>
+              <Text style={styles.textStyle}>{"Soccer"}</Text>
+              <Text style={styles.textStyle}>{"12/13@12:00"}</Text>
+              <Text style={styles.textStyle}>{"Clark Field"}</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -65,12 +65,13 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontFamily: "Comfortaa-Bold",
     justifyContent: "flex-start",
-    marginLeft: "3%",
+    marginRight: "52%",
   },
   seeMoreText: {
     fontSize: 13,
     fontFamily: "Comfortaa-Bold",
     justifyContent: "flex-end",
+    marginLeft: "68%",
     marginTop: "3%",
   },
   container: {
@@ -88,9 +89,10 @@ const styles = StyleSheet.create({
   },
   mainText: {
     fontFamily: "Comfortaa-Regular",
+    fontSize: 15,
     flexDirection: "row",
-    fontSize: 14,
-    alignSelf: "center",
+    marginLeft: "5%",
+    marginRight: "5%",
   },
   settingsButton: {
     alignItems: "center",
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
   listItem: {
     width: "90%",
     height: "5%",
-    marginTop: "5%",
+    marginTop: "3%",
     alignItems: "center",
     justifyContent: "center",
     padding: "16%",
