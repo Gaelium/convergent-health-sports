@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function viewEvent(props) {
+  console.log(props);
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -39,7 +40,12 @@ export default function viewEvent(props) {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity style={styles.viewAttendees}>
+      <TouchableOpacity
+        style={styles.viewAttendees}
+        onPress={() => {
+          props.navigation.navigate("viewAttendees");
+        }}
+      >
         <Text style={styles.buttonText}>View Attendees</Text>
       </TouchableOpacity>
     </View>

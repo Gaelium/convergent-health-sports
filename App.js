@@ -13,7 +13,7 @@ import HomeScreen from "./components/HomeScreen";
 import Username from "./components/Username";
 import viewEvent from "./components/viewEvent";
 import createEvent from "./components/createEvent";
-
+import viewAttendees from "./components/viewAttendees";
 import yourProfile from "./components/yourProfile";
 import Search from "./components/Search";
 
@@ -49,6 +49,7 @@ export default function App() {
         <Stack.Screen name="Sports" component={Sports} />
         <Stack.Screen name="Username" component={Username} />
         <Stack.Screen name="viewEvent" component={viewEvent} />
+        <Stack.Screen name="viewAttendees" component={viewAttendees} />
       </Stack.Navigator>
     </NavigationContainer>
   );
