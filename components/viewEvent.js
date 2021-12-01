@@ -1,12 +1,14 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function viewEvent() {
+export default function viewEvent(props) {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>Sport Name</Text>
-        <Text style={styles.titleText}>3/8</Text>
+        <Text style={styles.titleText}>{props.route.params.sport}</Text>
+        <Text style={styles.titleText}>
+          {props.route.params.group}/{props.route.params.groupSize}
+        </Text>
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.textButton}>
@@ -20,24 +22,20 @@ export default function viewEvent() {
       <View style={styles.mainContainer}>
         <View style={styles.mainText}>
           <Text>Description</Text>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut
-            enim tincidunt ex mollis ultrices. Morbi luctus dignissim dictum.
-            Pellentesque porta congue eros, ac
-          </Text>
+          <Text>{props.route.params.description}</Text>
         </View>
         <View style={styles.mainButtonContainer}>
           <TouchableOpacity style={styles.joinButton}>
             <Text style={styles.buttonText}>Join</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.sportsButton}>
-            <Text style={styles.buttonText}>Sport</Text>
+            <Text style={styles.buttonText}>{props.route.params.sport}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.locationButton}>
-            <Text style={styles.buttonText}>Location</Text>
+            <Text style={styles.buttonText}>{props.route.params.where}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.dateButton}>
-            <Text style={styles.buttonText}>Date</Text>
+            <Text style={styles.buttonText}>{props.route.params.when}</Text>
           </TouchableOpacity>
         </View>
       </View>

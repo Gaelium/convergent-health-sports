@@ -53,7 +53,22 @@ function HomeScreen({ navigation }) {
             style={styles.flatlist}
             data={data}
             renderItem={({ item }) => (
-              <TouchableOpacity style={styles.listItem}>
+              <TouchableOpacity
+                style={styles.listItem}
+                onPress={() => {
+                  console.log(item.sport);
+                  navigation.navigate("viewEvent", {
+                    sport: item.sport,
+                    when: item.when,
+                    where: item.where,
+                    location: item.location,
+                    description: item.description,
+                    group: item.group,
+                    groupSize: item.groupSize,
+                    users: item.users,
+                  });
+                }}
+              >
                 <View
                   style={{
                     flexDirection: "row",
