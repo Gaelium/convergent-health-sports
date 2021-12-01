@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,11 +7,25 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-
+import firebase from "./firestoreDB";
 //create a flatlist of touchable opacity that have 3 text components
 
 function HomeScreen({ navigation }) {
   const [live, setLive] = useState(true);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("events")
+      .get()
+      .then((querySnapshot) => {
+        let temp = [];
+        querySnapshot.forEach((snapshot) => {
+          temp.push(snapshot.data());
+        });
+        setData(temp);
+      });
+  }, []);
   if (live) {
     return (
       <View style={styles.container}>
@@ -37,15 +51,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.titleStyle}>Live Events</Text>
           <FlatList
             style={styles.flatlist}
-            data={[
-              { key: "Basketball", when: "Tuesday", where: "Greg Gym", pic: "../assets/basketball.png" },
-              { key: "Soccer", when: "Wednesday", where: "Clark Fields", pic: "../assets/basketball.png" },
-              { key: "Tennis", when: "Wednesday", where: "Clark Fields", pic: "../assets/basketball.png" },
-              { key: "Spikeball", when: "Thursday", where: "Greg Gym", pic: "../assets/basketball.png" },
-              { key: "Volleyball", when: "Friday", where: "Greg Gym", pic: "../assets/basketball.png" },
-              { key: "Flag Football", when: "Saturday", where: "Greg Gym", pic: "../assets/basketball.png" },
-              { key: "Raquetball", when: "Sunday", where: "Greg Gym", pic: "../assets/basketball.png" },
-            ]}
+            data={data}
             renderItem={({ item }) => (
               <TouchableOpacity style={styles.listItem}>
                 <View
@@ -60,7 +66,7 @@ function HomeScreen({ navigation }) {
                     style={{ width: 75, height: 75, marginRight: 10 }}
                   />
                   <View style={{ marginLeft: "15%" }}>
-                    <Text style={styles.textStyle}>{item.key}</Text>
+                    <Text style={styles.textStyle}>{item.sport}</Text>
                     <Text style={styles.textStyle}>{item.when}</Text>
                     <Text style={styles.textStyle}>{item.where}</Text>
                   </View>

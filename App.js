@@ -18,6 +18,7 @@ import yourProfile from "./components/yourProfile";
 import Search from "./components/Search";
 
 import firebase from "./components/firestoreDB";
+import { Firestore } from "@firebase/firestore";
 
 // Optionally import the services that you want to use
 //import {...} from "firebase/auth";
@@ -27,6 +28,7 @@ import firebase from "./components/firestoreDB";
 //import {...} from "firebase/storage";
 
 // Initialize Firebase
+console.log("Initializing Firebase");
 
 //console.log(firebase.firestore().collection("events").doc("1"));
 const Stack = createNativeStackNavigator();
