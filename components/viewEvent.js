@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function viewEvent(props) {
-  console.log(props);
+  const [joined, setJoined] = useState(false);
+  const [groups, setGroups] = useState(props.route.params.group);
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>{props.route.params.sport}</Text>
         <Text style={styles.titleText}>
-          {props.route.params.group}/{props.route.params.groupSize}
+          {groups}/{props.route.params.groupSize}
         </Text>
       </View>
       <View style={styles.buttonContainer}>
@@ -26,8 +27,18 @@ export default function viewEvent(props) {
           <Text>{props.route.params.description}</Text>
         </View>
         <View style={styles.mainButtonContainer}>
-          <TouchableOpacity style={styles.joinButton}>
-            <Text style={styles.buttonText}>Join</Text>
+          <TouchableOpacity
+            style={styles.joinButton}
+            onPress={() => {
+              setJoined(!joined);
+              if (joined) {
+                setGroups(groups - 1);
+              } else {
+                setGroups(groups + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttonText}>{joined ? "Joined" : "Join"}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.sportsButton}>
             <Text style={styles.buttonText}>{props.route.params.sport}</Text>
