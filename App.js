@@ -89,7 +89,6 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Search" component={Search} />
       <HomeStack.Screen name="Create Event" component={createEvent} />
       <HomeStack.Screen name="Profile" component={yourProfile} />
-      <HomeStack.Screen name="Attendees" component={viewAttendees} />
     </HomeStack.Navigator>
   );
 }

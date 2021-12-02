@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
 
-export default function yourProfile() {
+export default function yourProfile( props ) {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -19,7 +19,11 @@ export default function yourProfile() {
         </Text>
         <Text style={styles.upcomingEventsText}>UPCOMING EVENTS</Text>
 
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity 
+          style={styles.listItem}
+          onPress={() => {
+            props.navigation.navigate("viewEvent");
+          }}>
           <View
             style={{
               flexDirection: "row",

@@ -10,6 +10,9 @@ import {
   ScrollView,
   SafeAreaView,
   FlatList,
+  DatePicker,
+  Button,
+  CheckBox,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 export default function createEvent({ navigation }) {
@@ -23,6 +26,13 @@ export default function createEvent({ navigation }) {
     { label: "Female", value: "female" },
     { label: "Perfer Not to Say", value: "pnts" },
   ]);
+  const [sports, setSports] = useState([
+    { label: "Basketball", value: "basketball"},
+    { label: "Soccer", value: "soccer"},
+    { label: "Volleyball", value: "volleyball"},
+    { label: "Spikeball", value: "spikeball"},
+  ]);
+  const [date, setDate] = useState(new Date());
   const [openVisibility, setOpenVisibility] = useState(false);
   const [valueVis, setValueVis] = useState(null);
   const [itemsVis, setItemsVis] = useState([
@@ -39,7 +49,7 @@ export default function createEvent({ navigation }) {
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.title}>Create Event</Text>
-        <Text>Name</Text>
+        <Text style={styles.header}>Name</Text>
         <TextInput
           style={styles.textInput}
           placeholder="Event Name"
@@ -48,7 +58,7 @@ export default function createEvent({ navigation }) {
             setName(name);
           }}
         />
-        <Text>Visibility</Text>
+        <Text style={styles.header}>Visibility</Text>
         <DropDownPicker
           open={openVisibility}
           value={valueVis}
@@ -90,15 +100,12 @@ export default function createEvent({ navigation }) {
             elevation: 24,
           }}
         />
-        <Text>Description</Text>
-        <TextInput
-          style={styles.descriptionInput}
-          placeholder="Description"
-          placeholderTextColor={"black"}
-          onChangeText={(desc) => {
-            setDescription(desc);
-          }}
+        <Text style={styles.header}>Difficulty</Text>
+        <CheckBox
+          title='Click Here'
+          checked={true}
         />
+        <Text style={styles.header}>Group Size</Text>
         <TextInput
           style={styles.textInput}
           placeholder="Enter Group Size"
@@ -107,11 +114,11 @@ export default function createEvent({ navigation }) {
             setGroupSize(groupSize);
           }}
         />
-        <Text>Pick Sport</Text>
+        <Text style={styles.header}>Pick Sport</Text>
         <DropDownPicker
           open={open}
           value={value}
-          items={items}
+          items={sports}
           setOpen={setDropDown}
           setValue={(value) => {
             setValue(value);
@@ -150,6 +157,30 @@ export default function createEvent({ navigation }) {
             elevation: 24,
           }}
         />
+        
+        {/* <Text style={styles.header}>Date & Time</Text>
+        <Button title="Open" onPress={() => setOpen(true)} />
+        <DatePicker
+          modal
+          open={open}
+          date={date}
+          onConfirm={(date) => {
+            setOpen(false)
+            setDate(date)
+          }}
+          onCancel={() => {
+            setOpen(false)
+          }}
+        /> */}
+        <Text style={styles.header}>Description</Text>
+        <TextInput
+          style={styles.descriptionInput}
+          placeholder="Description"
+          placeholderTextColor={"black"}
+          onChangeText={(desc) => {
+            setDescription(desc);
+          }}
+        />
         <TouchableOpacity
           style={styles.loginButtonContainer}
           onPress={() => {
@@ -178,10 +209,17 @@ const styles = StyleSheet.create({
     color: "black",
     borderRadius: 10,
     alignSelf: "flex-start",
-    marginLeft: 30,
+    marginLeft: 60,
     fontFamily: "Comfortaa-Regular",
     marginTop: 20,
-    marginBottom: 25,
+    marginBottom: 5,
+  },
+  header: {
+    fontSize: 18,
+    color: "black",
+    fontFamily: "Comfortaa-Bold",
+    marginBottom: 10,
+    marginTop: 20,
   },
   nameInput: {
     fontSize: 16,
