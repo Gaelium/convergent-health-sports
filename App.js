@@ -16,6 +16,7 @@ import createEvent from "./components/createEvent";
 import viewAttendees from "./components/viewAttendees";
 import yourProfile from "./components/yourProfile";
 import Search from "./components/Search";
+import Messages from "./components/Messages";
 
 import firebase from "./components/firestoreDB";
 import { Firestore } from "@firebase/firestore";
@@ -88,6 +89,7 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <HomeStack.Screen name="Search" component={Search} />
       <HomeStack.Screen name="Create Event" component={createEvent} />
+      <HomeStack.Screen name="Messages" component={Messages} />
       <HomeStack.Screen name="Profile" component={yourProfile} />
     </HomeStack.Navigator>
   );

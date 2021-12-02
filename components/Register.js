@@ -9,7 +9,10 @@ import {
   TextInput,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
+
+
 function Register({ navigation }) {
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,6 +36,18 @@ function Register({ navigation }) {
   const setDropDown = () => {
     setOpen(!open);
   };
+
+  const onHandleSignup = async () => {
+    try {
+      if (email !== '' && password !== '') {
+        await auth.createUserWithEmailAndPassword(email, password);
+      }
+    } catch (error) {
+      setSignupError(error.message);
+    }
+  };
+
+ 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Personal Info</Text>
