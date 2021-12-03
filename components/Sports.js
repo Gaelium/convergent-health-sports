@@ -50,263 +50,263 @@ function Sports({ navigation }) {
   };
   return (
     <ScrollView>
-    <View style={styles.container}>
-      <Text style={styles.title}>Sports</Text>
-      <Text style={styles.inputTitle}>
-        Favorite Sport<Text style={{ color: "red" }}>*</Text>
-      </Text>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Enter sport..."
-        placeholderTextColor={"black"}
-        onChangeText={(firstSport) => {
-          setFirstSport(firstSport);
-        }}
-      />
+      <View style={styles.container}>
+        <Text style={styles.title}>Sports</Text>
+        <Text style={styles.inputTitle}>
+          Favorite Sport<Text style={{ color: "red" }}>*</Text>
+        </Text>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter sport..."
+          placeholderTextColor={"black"}
+          onChangeText={(firstSport) => {
+            setFirstSport(firstSport);
+          }}
+        />
 
-      <Text style={styles.inputTitle}>
-        Skill Level<Text style={{ color: "red" }}>*</Text>
-      </Text>
-      <DropDownPicker
-        firstSportDifficultyOpen={firstSportDifficultyOpen}
-        firstSportDifficultyValue={firstSportDifficultyValue}
-        items={firstSportDifficulty}
-        setFirstSportDifficultyOpen={setFirstSportDifficultyDropDown}
-        setFirstSportDifficultyValue={(firstSportDifficultyValue) => {
-          setFirstSportDifficultyValue(firstSportDifficultyValue);
-        }}
-        setFirstSportDifficulty={setFirstSportDifficulty}
-        disableBorderRadius={true}
-        textStyle={{
-          fontSize: 16,
-          fontFamily: "Comfortaa-Regular",
-        }}
-        style={{
-          borderWidth: 0,
-        }}
-        containerStyle={{
-          fontSize: 16,
-          backgroundColor: "white",
-          borderColor: "#000",
-          color: "black",
-          borderRadius: 10,
-          marginBottom: 50,
-          textAlign: "auto",
-          width: "85%",
-          height: 50,
-          margin: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "Comfortaa-Regular",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-      
-          elevation: 24,
-        }}
-        dropDownContainerStyle={{
-          fontSize: 16,
-          backgroundColor: "white",
-          borderColor: "#000",
-          color: "black",
-          borderRadius: 10,
-          marginBottom: 50,
-          textAlign: "auto",
-          width: "85%",
-          height: 50,
-          margin: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "Comfortaa-Regular",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-      
-          elevation: 24,
-        }}
-      />
+        <Text style={styles.inputTitle}>
+          Skill Level<Text style={{ color: "red" }}>*</Text>
+        </Text>
+        <DropDownPicker
+          firstSportDifficultyOpen={firstSportDifficultyOpen}
+          firstSportDifficultyValue={firstSportDifficultyValue}
+          items={firstSportDifficulty}
+          setFirstSportDifficultyOpen={setFirstSportDifficultyDropDown}
+          setFirstSportDifficultyValue={(firstSportDifficultyValue) => {
+            setFirstSportDifficultyValue(firstSportDifficultyValue);
+          }}
+          setFirstSportDifficulty={setFirstSportDifficulty}
+          disableBorderRadius={true}
+          textStyle={{
+            fontSize: 16,
+            fontFamily: "Comfortaa-Regular",
+          }}
+          style={{
+            borderWidth: 0,
+          }}
+          containerStyle={{
+            fontSize: 16,
+            backgroundColor: "white",
+            borderColor: "#000",
+            color: "black",
+            borderRadius: 10,
+            marginBottom: 50,
+            textAlign: "auto",
+            width: "85%",
+            height: 50,
+            margin: 10,
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Comfortaa-Regular",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
 
-      <Text style={styles.inputTitle}>
-        Second Favorite Sport<Text style={{ color: "red" }}>*</Text>
-      </Text>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Enter sport..."
-        placeholderTextColor={"black"}
-        onChangeText={(secondSport) => {
-          setSecondSport(secondSport);
-        }}
-      />
+            elevation: 24,
+          }}
+          dropDownContainerStyle={{
+            fontSize: 16,
+            backgroundColor: "white",
+            borderColor: "#000",
+            color: "black",
+            borderRadius: 10,
+            marginBottom: 50,
+            textAlign: "auto",
+            width: "85%",
+            height: 50,
+            margin: 10,
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Comfortaa-Regular",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
 
-      <Text style={styles.inputTitle}>
-        Skill Level<Text style={{ color: "red" }}>*</Text>
-      </Text>
-      <DropDownPicker
-        secondSportDifficultyOpen={secondSportDifficultyOpen}
-        secondSportDifficultyValue={secondSportDifficultyValue}
-        items={secondSportDifficulty}
-        setSecondSportDifficultyOpen={setSecondSportDifficultyDropDown}
-        setSecondSportDifficultyValue={(secondSportDifficultyValue) => {
-          setSecondSportDifficultyValue(secondSportDifficultyValue);
-        }}
-        setSecondSportDifficulty={setSecondSportDifficulty}
-        disableBorderRadius={true}
-        textStyle={{
-          fontSize: 16,
-          fontFamily: "Comfortaa-Regular",
-        }}
-        style={{
-          borderWidth: 0,
-        }}
-        containerStyle={{
-          fontSize: 16,
-          backgroundColor: "white",
-          borderColor: "#000",
-          color: "black",
-          borderRadius: 10,
-          marginBottom: 50,
-          textAlign: "auto",
-          width: "85%",
-          height: 50,
-          margin: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "Comfortaa-Regular",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-      
-          elevation: 24,
-        }}
-        dropDownContainerStyle={{
-          fontSize: 16,
-          backgroundColor: "white",
-          borderColor: "#000",
-          color: "black",
-          borderRadius: 10,
-          marginBottom: 50,
-          textAlign: "auto",
-          width: "85%",
-          height: 50,
-          margin: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "Comfortaa-Regular",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-      
-          elevation: 24,
-        }}
-      />
+            elevation: 24,
+          }}
+        />
 
-      <Text style={styles.inputTitle}>
-        Third Favorite Sport<Text style={{ color: "red" }}>*</Text>
-      </Text>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Enter sport..."
-        placeholderTextColor={"black"}
-        onChangeText={(thirdSport) => {
-          setThirdSport(thirdSport);
-        }}
-      />
-      <Text style={styles.inputTitle}>
-        Skill Level<Text style={{ color: "red" }}>*</Text>
-      </Text>
-      
-      <DropDownPicker
-        thirdSportDifficultyOpen={thirdSportDifficultyOpen}
-        thirdSportDifficultyValue={thirdSportDifficultyValue}
-        items={thirdSportDifficulty}
-        setThirdSportDifficultyOpen={setThirdSportDifficultyDropDown}
-        setThirdSportDifficultyValue={(thirdSportDifficultyValue) => {
-          setThirdSportDifficultyValue(thirdSportDifficultyValue);
-        }}
-        setThirdSportDifficulty={setThirdSportDifficulty}
-        disableBorderRadius={true}
-        textStyle={{
-          fontSize: 16,
-          fontFamily: "Comfortaa-Regular",
-        }}
-        style={{
-          borderWidth: 0,
-        }}
-        containerStyle={{
-          fontSize: 16,
-          backgroundColor: "white",
-          borderColor: "#000",
-          color: "black",
-          borderRadius: 10,
-          marginBottom: 30,
-          textAlign: "auto",
-          width: "85%",
-          height: 50,
-          margin: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "Comfortaa-Regular",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-      
-          elevation: 24,
-        }}
-        dropDownContainerStyle={{
-          fontSize: 16,
-          backgroundColor: "white",
-          borderColor: "#000",
-          color: "black",
-          borderRadius: 10,
-          marginBottom: 30,
-          textAlign: "auto",
-          width: "85%",
-          height: 50,
-          margin: 10,
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "Comfortaa-Regular",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 12,
-          },
-          shadowOpacity: 0.12,
-          shadowRadius: 8.0,
-      
-          elevation: 24,
-        }}
-      />
+        <Text style={styles.inputTitle}>
+          Second Favorite Sport<Text style={{ color: "red" }}>*</Text>
+        </Text>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter sport..."
+          placeholderTextColor={"black"}
+          onChangeText={(secondSport) => {
+            setSecondSport(secondSport);
+          }}
+        />
 
-      <TouchableOpacity
-        style={styles.loginButtonContainer}
-        onPress={() => {
-          navigation.navigate("Username");
-        }}
-      >
-        <Text style={styles.loginText}>Next</Text>
-      </TouchableOpacity>
-    </View>
+        <Text style={styles.inputTitle}>
+          Skill Level<Text style={{ color: "red" }}>*</Text>
+        </Text>
+        <DropDownPicker
+          secondSportDifficultyOpen={secondSportDifficultyOpen}
+          secondSportDifficultyValue={secondSportDifficultyValue}
+          items={secondSportDifficulty}
+          setSecondSportDifficultyOpen={setSecondSportDifficultyDropDown}
+          setSecondSportDifficultyValue={(secondSportDifficultyValue) => {
+            setSecondSportDifficultyValue(secondSportDifficultyValue);
+          }}
+          setSecondSportDifficulty={setSecondSportDifficulty}
+          disableBorderRadius={true}
+          textStyle={{
+            fontSize: 16,
+            fontFamily: "Comfortaa-Regular",
+          }}
+          style={{
+            borderWidth: 0,
+          }}
+          containerStyle={{
+            fontSize: 16,
+            backgroundColor: "white",
+            borderColor: "#000",
+            color: "black",
+            borderRadius: 10,
+            marginBottom: 50,
+            textAlign: "auto",
+            width: "85%",
+            height: 50,
+            margin: 10,
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Comfortaa-Regular",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+
+            elevation: 24,
+          }}
+          dropDownContainerStyle={{
+            fontSize: 16,
+            backgroundColor: "white",
+            borderColor: "#000",
+            color: "black",
+            borderRadius: 10,
+            marginBottom: 50,
+            textAlign: "auto",
+            width: "85%",
+            height: 50,
+            margin: 10,
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Comfortaa-Regular",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+
+            elevation: 24,
+          }}
+        />
+
+        <Text style={styles.inputTitle}>
+          Third Favorite Sport<Text style={{ color: "red" }}>*</Text>
+        </Text>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Enter sport..."
+          placeholderTextColor={"black"}
+          onChangeText={(thirdSport) => {
+            setThirdSport(thirdSport);
+          }}
+        />
+        <Text style={styles.inputTitle}>
+          Skill Level<Text style={{ color: "red" }}>*</Text>
+        </Text>
+
+        <DropDownPicker
+          thirdSportDifficultyOpen={thirdSportDifficultyOpen}
+          thirdSportDifficultyValue={thirdSportDifficultyValue}
+          items={thirdSportDifficulty}
+          setThirdSportDifficultyOpen={setThirdSportDifficultyDropDown}
+          setThirdSportDifficultyValue={(thirdSportDifficultyValue) => {
+            setThirdSportDifficultyValue(thirdSportDifficultyValue);
+          }}
+          setThirdSportDifficulty={setThirdSportDifficulty}
+          disableBorderRadius={true}
+          textStyle={{
+            fontSize: 16,
+            fontFamily: "Comfortaa-Regular",
+          }}
+          style={{
+            borderWidth: 0,
+          }}
+          containerStyle={{
+            fontSize: 16,
+            backgroundColor: "white",
+            borderColor: "#000",
+            color: "black",
+            borderRadius: 10,
+            marginBottom: 30,
+            textAlign: "auto",
+            width: "85%",
+            height: 50,
+            margin: 10,
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Comfortaa-Regular",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+
+            elevation: 24,
+          }}
+          dropDownContainerStyle={{
+            fontSize: 16,
+            backgroundColor: "white",
+            borderColor: "#000",
+            color: "black",
+            borderRadius: 10,
+            marginBottom: 30,
+            textAlign: "auto",
+            width: "85%",
+            height: 50,
+            margin: 10,
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Comfortaa-Regular",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.12,
+            shadowRadius: 8.0,
+
+            elevation: 24,
+          }}
+        />
+
+        <TouchableOpacity
+          style={styles.loginButtonContainer}
+          onPress={() => {
+            navigation.navigate("Username");
+          }}
+        >
+          <Text style={styles.loginText}>Next</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 }

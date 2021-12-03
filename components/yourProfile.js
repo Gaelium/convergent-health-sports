@@ -1,7 +1,14 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  ScrollView,
+} from "react-native";
 
-export default function yourProfile( props ) {
+export default function yourProfile(props) {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -14,16 +21,12 @@ export default function yourProfile( props ) {
         </View>
         <Text style={styles.locationText}>San Francisco, CA</Text>
         <Text style={styles.mainText}>
-              I’m looking for tips around capturing the milky way. 
-              I have a 6D with a 24-100mm...
+          I’m looking for tips around capturing the milky way. I have a 6D with
+          a 24-100mm...
         </Text>
         <Text style={styles.upcomingEventsText}>UPCOMING EVENTS</Text>
 
-        <TouchableOpacity 
-          style={styles.listItem}
-          onPress={() => {
-            props.navigation.navigate("viewEvent");
-          }}>
+        <TouchableOpacity style={styles.listItem}>
           <View
             style={{
               flexDirection: "row",
@@ -42,9 +45,9 @@ export default function yourProfile( props ) {
             </View>
           </View>
         </TouchableOpacity>
-        
+
         <TouchableOpacity>
-        <Text style={styles.seeMoreText}>SEE MORE</Text>
+          <Text style={styles.seeMoreText}>SEE MORE</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingsButton}>

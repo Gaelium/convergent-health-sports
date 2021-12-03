@@ -13,6 +13,17 @@ import firebase from "./firestoreDB";
 function HomeScreen({ navigation }) {
   const [live, setLive] = useState(true);
   const [data, setData] = useState([]);
+  const [sport, setSport] = useState("");
+
+  const randomImages = [
+    require("../assets/volleyball.png"),
+
+    require("../assets/basketball.png"),
+    require("../assets/soccer.png"),
+    require("../assets/volleyball.png"),
+    require("../assets/spikeball.png"),
+    require("../assets/basketball.png"),
+  ];
   useEffect(() => {
     firebase
       .firestore()
@@ -56,7 +67,6 @@ function HomeScreen({ navigation }) {
               <TouchableOpacity
                 style={styles.listItem}
                 onPress={() => {
-                  console.log(item.sport);
                   navigation.navigate("viewEvent", {
                     sport: item.sport,
                     when: item.when,
@@ -77,7 +87,7 @@ function HomeScreen({ navigation }) {
                   }}
                 >
                   <Image
-                    source={require("../assets/basketball.png")}
+                    source={randomImages[item.key]}
                     style={{ width: 75, height: 75, marginRight: 10 }}
                   />
                   <View style={{ marginLeft: "15%" }}>
@@ -86,6 +96,9 @@ function HomeScreen({ navigation }) {
                     <Text style={styles.textStyle}>{item.where}</Text>
                   </View>
                 </View>
+                {/* onPress={() => {
+                  navigation.navigate("viewEvent");
+                }} */}
               </TouchableOpacity>
             )}
           />
@@ -118,45 +131,33 @@ function HomeScreen({ navigation }) {
           <FlatList
             style={styles.flatlist}
             data={data}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.listItem}
-                onPress={() => {
-                  console.log(item.sport);
-                  navigation.navigate("viewEvent", {
-                    sport: item.sport,
-                    when: item.when,
-                    where: item.where,
-                    location: item.location,
-                    description: item.description,
-                    group: item.group,
-                    groupSize: item.groupSize,
-                    users: item.users,
-                  });
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <Image
-                    source={require("../assets/soccer.png")}
-                    style={{ width: 75, height: 75, marginRight: 10 }}
-                  />
-                  <View style={{ marginLeft: "15%" }}>
-                    <Text style={styles.textStyle}>{item.sport}</Text>
-                    <Text style={styles.textStyle}>{item.when}</Text>
-                    <Text style={styles.textStyle}>{item.where}</Text>
-                  </View>
-                </View>
-                {/* onPress={() => {
-                  navigation.navigate("viewEvent");
-                }} */}
-              </TouchableOpacity>
-            )}
+            renderItem={({ item }) => {
+              if (item.sport === "Soccer") {
+                return (
+                  <TouchableOpacity style={styles.listItem}>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Image
+                        source={randomImages[item.key]}
+                        style={{ width: 75, height: 75, marginRight: 10 }}
+                      />
+                      <View style={{ marginLeft: "15%" }}>
+                        <Text style={styles.textStyle}>{item.sport}</Text>
+                        <Text style={styles.textStyle}>{item.when}</Text>
+                        <Text style={styles.textStyle}>{item.where}</Text>
+                      </View>
+                    </View>
+                  </TouchableOpacity>
+                );
+              } else {
+                return <TouchableOpacity></TouchableOpacity>;
+              }
+            }}
           />
         </View>
       </View>

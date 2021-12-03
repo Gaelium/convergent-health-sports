@@ -30,7 +30,7 @@ import { Firestore } from "@firebase/firestore";
 
 // Initialize Firebase
 console.log("Initializing Firebase");
-
+console.disableYellowBox = true;
 //console.log(firebase.firestore().collection("events").doc("1"));
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -69,7 +69,7 @@ function HomeStackScreen() {
             iconName = focused ? "ios-home" : "ios-home-outline";
           } else if (route.name === "Search") {
             iconName = focused ? "ios-search" : "ios-search-outline";
-          } else if (route.name === "Message") {
+          } else if (route.name === "Messages") {
             iconName = focused ? "ios-chatbubble" : "ios-chatbubble-outline";
           } else if (route.name === "Create Event") {
             iconName = "ios-add";

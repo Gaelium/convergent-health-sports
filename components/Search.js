@@ -10,12 +10,21 @@ import {
   Image,
 } from "react-native";
 import firebase from "./firestoreDB";
-export default function Search() {
+export default function Search({ navigation }) {
   const [search, setSearch] = useState("");
   const [filteredDataSource, setFilteredDataSource] = useState([]);
   const [masterDataSource, setMasterDataSource] = useState([]);
   const [limitedDataSource, setLimitedDataSource] = useState([]);
   const [loadAmount, setLoadAmount] = useState(2);
+  const randomImages = [
+    require("../assets/volleyball.png"),
+
+    require("../assets/basketball.png"),
+    require("../assets/soccer.png"),
+    require("../assets/volleyball.png"),
+    require("../assets/spikeball.png"),
+    require("../assets/basketball.png"),
+  ];
   useEffect(() => {
     firebase
       .firestore()
@@ -95,7 +104,7 @@ export default function Search() {
           }}
         >
           <Image
-            source={require("../assets/basketball.png")}
+            source={randomImages[item.key]}
             style={{ width: 75, height: 75, marginRight: 10 }}
           />
           <View style={{ marginLeft: "15%" }}>

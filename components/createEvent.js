@@ -14,6 +14,7 @@ import {
   Button,
   CheckBox,
 } from "react-native";
+
 import DropDownPicker from "react-native-dropdown-picker";
 export default function createEvent({ navigation }) {
   const [name, setName] = useState("");
@@ -27,10 +28,10 @@ export default function createEvent({ navigation }) {
     { label: "Perfer Not to Say", value: "pnts" },
   ]);
   const [sports, setSports] = useState([
-    { label: "Basketball", value: "basketball"},
-    { label: "Soccer", value: "soccer"},
-    { label: "Volleyball", value: "volleyball"},
-    { label: "Spikeball", value: "spikeball"},
+    { label: "Basketball", value: "basketball" },
+    { label: "Soccer", value: "soccer" },
+    { label: "Volleyball", value: "volleyball" },
+    { label: "Spikeball", value: "spikeball" },
   ]);
   const [date, setDate] = useState(new Date());
   const [openVisibility, setOpenVisibility] = useState(false);
@@ -39,6 +40,9 @@ export default function createEvent({ navigation }) {
     { label: "Public", value: "public" },
     { label: "Private", value: "private" },
   ]);
+  const [beginnerIsSelected, setBeginnerSelection] = useState(false);
+  const [intermediateIsSelected, setIntermediateSelection] = useState(false);
+  const [advancedIsSelected, setAdvancedSelection] = useState(false);
   const setDropDown = () => {
     setOpen(!open);
   };
@@ -101,10 +105,32 @@ export default function createEvent({ navigation }) {
           }}
         />
         <Text style={styles.header}>Difficulty</Text>
-        <CheckBox
-          title='Click Here'
-          checked={true}
-        />
+        <View style={styles.checkBoxContainerBeginner}>
+          <CheckBox
+            value={beginnerIsSelected}
+            onValueChange={setBeginnerSelection}
+          />
+          <Text style={styles.difficultyText}>Beginner</Text>
+        </View>
+
+        <View style={styles.checkBoxContainerIntermediate}>
+          <CheckBox
+            value={intermediateIsSelected}
+            onValueChange={setIntermediateSelection}
+            style={styles.checkBox}
+          />
+          <Text style={styles.difficultyText}>Intermediate</Text>
+        </View>
+
+        <View style={styles.checkBoxContainerAdvanced}>
+          <CheckBox
+            value={advancedIsSelected}
+            onValueChange={setAdvancedSelection}
+            style={styles.checkBoxAdvanced}
+          />
+          <Text style={styles.difficultyText}>Advanced</Text>
+        </View>
+
         <Text style={styles.header}>Group Size</Text>
         <TextInput
           style={styles.textInput}
@@ -157,7 +183,7 @@ export default function createEvent({ navigation }) {
             elevation: 24,
           }}
         />
-        
+
         {/* <Text style={styles.header}>Date & Time</Text>
         <Button title="Open" onPress={() => setOpen(true)} />
         <DatePicker
@@ -165,11 +191,11 @@ export default function createEvent({ navigation }) {
           open={open}
           date={date}
           onConfirm={(date) => {
-            setOpen(false)
-            setDate(date)
+            setOpen(false);
+            setDate(date);
           }}
           onCancel={() => {
-            setOpen(false)
+            setOpen(false);
           }}
         /> */}
         <Text style={styles.header}>Description</Text>
@@ -204,6 +230,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#EFEFEF",
   },
+  checkBoxContainerBeginner: {
+    flexDirection: "row",
+    marginBottom: 10,
+  },
+  checkBoxContainerIntermediate: {
+    flexDirection: "row",
+    marginBottom: 10,
+    marginLeft: 30,
+  },
+  checkBoxContainerAdvanced: {
+    flexDirection: "row",
+    marginBottom: 10,
+    marginLeft: 5,
+  },
+  // checkboxIntermediate: {
+  //   marginLeft: 10,
+  // },
+  // checkBoxAdvanced: {
+  //   marginLeft: 5,
+  // },
   title: {
     fontSize: 40,
     color: "black",
@@ -264,6 +310,11 @@ const styles = StyleSheet.create({
     shadowRadius: 8.0,
 
     elevation: 24,
+  },
+  difficultyText: {
+    fontSize: 16,
+    color: "black",
+    fontFamily: "Comfortaa-Bold",
   },
   descriptionInput: {
     fontSize: 16,

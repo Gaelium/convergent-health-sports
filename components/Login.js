@@ -24,6 +24,7 @@ function Login({ navigation }) {
       <TextInput
         style={styles.textInput}
         placeholder="Password"
+        secureTextEntry={true}
         placeholderTextColor={"black"}
         onChangeText={(password) => {
           setPassword(password);
